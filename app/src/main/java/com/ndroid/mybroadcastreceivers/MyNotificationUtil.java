@@ -46,7 +46,6 @@ public class MyNotificationUtil {
                 .setPriority(Notification.PRIORITY_MAX)
                 .setContentTitle(strTitle)
                 .setContentText(strText)
-                //.setContentIntent(getPendingIntent(myData))
                 .setStyle(bigText)
                 .setVibrate(new long[]{100, 100})
                 .setOnlyAlertOnce(true);

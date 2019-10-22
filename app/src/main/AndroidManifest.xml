@@ -15,25 +15,32 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name="com.ndroid.mybroadcastreceivers.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.ndroid.mybroadcastreceivers.SmsReceiver">
+
+        <activity android:name=".MyRegisterReceiverActivity" />
+
+
+        <!--For Sms Receiver Listener-->
+        <receiver android:name=".SmsReceiver"
+            android:permission="android.permission.BROADCAST_SMS">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.ndroid.mybroadcastreceivers.MyBootReceiver">
+
+
+        <!--For Boot Listener-->
+        <receiver android:name=".MyBootReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
-
 
     </application>
 

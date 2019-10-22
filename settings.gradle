@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='Sms Broadcast Receiver Sample'
+rootProject.name='My Broadcast Receivers Sample'
