@@ -8,9 +8,13 @@ import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class MyNotificationUtil {
 
-    private final int NOTIFICATION_ID = 123;
+    private int NOTIFICATION_ID = 123;
 
     private final String NOTIFICATION_CHANNEL_ID = "MY_NOTIFICATION_ID";
     private final String NOTIFICATION_CHANNEL_NAME = "Broadcast Message";
@@ -21,11 +25,27 @@ public class MyNotificationUtil {
     private String strText;
     private String strBigMsg;
 
+    public MyNotificationUtil(Context context, String strTitle, String strText, String strBigMsg, boolean shouldHaveNotificaitonId) {
+        this.context = context;
+        this.strTitle = strTitle;
+        this.strText = strText;
+        this.strBigMsg = strBigMsg;
+        if (shouldHaveNotificaitonId) {
+            NOTIFICATION_ID = createID();
+        }
+    }
+
     public MyNotificationUtil(Context context, String strTitle, String strText, String strBigMsg) {
         this.context = context;
         this.strTitle = strTitle;
         this.strText = strText;
         this.strBigMsg = strBigMsg;
+    }
+
+    public int createID() {
+        Date now = new Date();
+        int id = Integer.parseInt(new SimpleDateFormat("ddHHmmss", Locale.US).format(now));
+        return id;
     }
 
     public void show() {
